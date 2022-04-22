@@ -1,8 +1,3 @@
-from cgi import print_arguments
-from distutils.log import info
-from turtle import speed
-
-
 class InfoMessage:
     """Информационное сообщение о тренировке."""
     def __init__(self, training_type, duration, distance, speed, calories):
