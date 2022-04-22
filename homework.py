@@ -19,6 +19,7 @@ class InfoMessage:
             f'Ср. скорость: {self.speed:.3f} км/ч; '
             f'Потрачено ккал: {self.calories:.3f}.')
 
+
 class Training:
     """Базовый класс тренировки."""
     LEN_STEP: float = 0.65
@@ -132,7 +133,6 @@ class Swimming(Training):
         return (speed_swimming + 1.1) * 2 * self.weight
      
     
-
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     workout: dict = {'SWM': Swimming,
@@ -150,8 +150,6 @@ def main(training: Training) -> None:
     print(info.get_message())
 
     
-
-
 if __name__ == '__main__':
     packages = [
         ('SWM', [720, 1, 80, 25, 40]),
