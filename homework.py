@@ -65,7 +65,7 @@ class Running(Training):
         action: int,
         duration: float,
         weight: float,
-                ) -> None:
+        ) -> None:
         self.action = action         # число шагов
         self.duration = duration     # длительность тренировки
         self.weight = weight         # вес спортсмена
@@ -74,8 +74,8 @@ class Running(Training):
         """Получить количество затраченных калорий."""
         return (
             (self.coeff_calorie_1
-            * self.get_mean_speed()
-            - self.coeff_calorie_2)
+                * self.get_mean_speed()
+                - self.coeff_calorie_2)
             * self.weight
             / self.M_IN_KM
             * self.duration
@@ -93,7 +93,7 @@ class SportsWalking(Training):
         duration: float,           # длительность тренировки
         weight: float,             # вес спортсмена
         height: float              # рост спортсмена
-                ) -> None:
+        ) -> None:
         super().__init__(action, duration, weight)
         self.height = height
 
@@ -104,7 +104,7 @@ class SportsWalking(Training):
             + (self.get_mean_speed()**2 // self.height)
             * self.coeff_calorie_2 * self.weight) * self.MIN_IN_HOUR
             * self.duration
-            )
+        )
 
 
 class Swimming(Training):
@@ -113,12 +113,12 @@ class Swimming(Training):
     M_IN_KM = 1000
 
     def __init__(
-        self, action: int,      #  число гребков
-        duration: float,        #  длительность тренировки
-        weight: float,          #  вес спортсмена
-        length_pool: float,     #  длина бассейна в метрах
-        count_pool: float       #  сколько раз пользователь переплыл бассейн
-        ) -> None:
+        self, action: int,
+        duration: float,
+        weight: float,
+        length_pool: float,
+        count_pool: float
+            ) -> None:
         super().__init__(action, duration, weight)
         self.length_pool = length_pool
         self.count_pool = count_pool
@@ -129,11 +129,16 @@ class Swimming(Training):
             self.action
             * self.LEN_STEP
             / self.M_IN_KM
-            )
+        )
 
-    def get_mean_speed(self)-> float:
+    def get_mean_speed(self) -> float:
         """Получить среднюю скорость движения."""
-        speed_swimming = (self.length_pool * self.count_pool / self.M_IN_KM / self.duration)
+        speed_swimming = (
+            self.length_pool 
+            * self.count_pool 
+            / self.M_IN_KM 
+            / self.duration
+            )
         return speed_swimming
 
     def get_spent_calories(self) -> float:
