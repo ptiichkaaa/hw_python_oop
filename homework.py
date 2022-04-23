@@ -60,11 +60,11 @@ class Running(Training):
     coeff_calorie_1 = 18
     coeff_calorie_2 = 20
 
-    def __init__(
-        self,
-        action: int,
-        duration: float,
-        weight: float,) -> None:
+    def __init__(self,
+                 action: int,
+                 duration: float,
+                 weight: float,
+                 ) -> None:
         self.action = action         # число шагов
         self.duration = duration     # длительность тренировки
         self.weight = weight         # вес спортсмена
