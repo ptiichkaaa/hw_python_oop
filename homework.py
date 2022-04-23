@@ -64,8 +64,7 @@ class Running(Training):
         self,
         action: int,
         duration: float,
-        weight: float,
-            ) -> None:
+        weight: float,) -> None:
         self.action = action         # число шагов
         self.duration = duration     # длительность тренировки
         self.weight = weight         # вес спортсмена
